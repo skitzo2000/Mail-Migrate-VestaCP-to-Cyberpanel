@@ -1,4 +1,6 @@
 #!/bin/bash
-if [ "$#" != "1" ]; then echo "you must pass a .conf file or specify -init"
+if [ "$#" != "1" || ! -f "$pwd/migrate.conf"]; then echo "you must pass a .conf file or specify -init"
+fi
+if ["$1" = "-init" ]; then 
 
-if ["$1" = "-init" ]; then echo "wordsworth"
+source $pwd/migrate.conf
